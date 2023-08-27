@@ -1,14 +1,19 @@
 package com.nishant4820.youtubelayout.repositories
 
 import com.nishant4820.youtubelayout.R
-import com.nishant4820.youtubelayout.data.*
+import com.nishant4820.youtubelayout.data.DataItem
+import com.nishant4820.youtubelayout.data.DataItemType
+import com.nishant4820.youtubelayout.data.LongVideoItem
+import com.nishant4820.youtubelayout.data.ShortsItem
 
 class MockDataRepository {
 
+    // Get the Mock (Sample) data
     fun getMockData(): ArrayList<DataItem> {
         return prepareMockData()
     }
 
+    // Prepare the mock data
     private fun prepareMockData(): ArrayList<DataItem> {
         val mockData = ArrayList<DataItem>()
 

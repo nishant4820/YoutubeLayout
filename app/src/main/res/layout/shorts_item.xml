@@ -19,8 +19,8 @@
             android:id="@+id/thumbnail"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-
             android:adjustViewBounds="true"
+            android:contentDescription="@string/thumbnail_photo"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -40,18 +40,18 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:maxLength="60"
-                android:text="Video Title"
                 android:textColor="@color/white"
                 android:textSize="14sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                tools:text="Video Title" />
 
             <TextView
                 android:id="@+id/views_count"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Views"
                 android:textColor="@color/white"
-                android:textSize="12sp" />
+                android:textSize="12sp"
+                tools:text="Views" />
 
         </LinearLayout>
 

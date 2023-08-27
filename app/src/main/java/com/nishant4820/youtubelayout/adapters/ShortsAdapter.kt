@@ -6,8 +6,11 @@ import androidx.recyclerview.widget.RecyclerView
 import com.nishant4820.youtubelayout.data.ShortsItem
 import com.nishant4820.youtubelayout.databinding.ShortsItemBinding
 
+// RecyclerView Adapter for RecyclerView present in shorts_tab_layout
 class ShortsAdapter(private val shortsItemList: List<ShortsItem>) :
     RecyclerView.Adapter<ShortsAdapter.ShortsItemViewHolder>() {
+
+    // ViewHolder class for Shorts Video Item
     inner class ShortsItemViewHolder(private val binding: ShortsItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
@@ -18,6 +21,7 @@ class ShortsAdapter(private val shortsItemList: List<ShortsItem>) :
         }
     }
 
+    // Inflating the Layout and creating a ViewHolder
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ShortsItemViewHolder {
         val binding = ShortsItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return ShortsItemViewHolder(binding)
@@ -27,6 +31,7 @@ class ShortsAdapter(private val shortsItemList: List<ShortsItem>) :
         return shortsItemList.size
     }
 
+    // Binding the ViewHolder Item with it's position's data
     override fun onBindViewHolder(holder: ShortsItemViewHolder, position: Int) {
         holder.bindShortsItem(shortsItemList[position])
     }

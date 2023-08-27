@@ -14,9 +14,11 @@ import com.nishant4820.youtubelayout.viewmodels.MainViewModel
 class HomeFragment : Fragment() {
 
     companion object {
+        // Function to create a new instance of Fragment
         fun newInstance() = HomeFragment()
     }
 
+    // Variables Defined
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
     private lateinit var viewModel: MainViewModel
@@ -25,6 +27,7 @@ class HomeFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        // Initialising the Variables
         viewModel = ViewModelProvider(this)[MainViewModel::class.java]
         mainAdapter = MainAdapter()
     }
@@ -32,8 +35,8 @@ class HomeFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-
+    ): View {
+        // Inflating the Layout
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         return binding.root
 
@@ -42,9 +45,12 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        // Setting up the Main Recycler View in HomeFragment
         binding.mainRecyclerView.setHasFixedSize(true)
         binding.mainRecyclerView.layoutManager = LinearLayoutManager(requireContext())
         binding.mainRecyclerView.adapter = mainAdapter
+
+        // Observing the ViewModel for changes in RecyclerView Data
         viewModel.dataList.observe(
             viewLifecycleOwner
         ) { value -> mainAdapter.setData(value) }

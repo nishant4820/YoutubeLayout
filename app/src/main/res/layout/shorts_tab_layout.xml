@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginStart="12dp"
@@ -11,6 +12,7 @@
         android:layout_width="wrap_content"
         android:layout_height="28dp"
         android:adjustViewBounds="true"
+        android:contentDescription="@string/shorts_thumbnail_photo"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/youtube_shorts_logo" />
@@ -20,8 +22,10 @@
         android:id="@+id/shorts_recycler_view"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/youtube_shorts_logo_image_view" />
+        app:layout_constraintTop_toBottomOf="@id/youtube_shorts_logo_image_view"
+        tools:listitem="@layout/shorts_item" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

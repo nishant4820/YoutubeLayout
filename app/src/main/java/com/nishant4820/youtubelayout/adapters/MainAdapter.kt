@@ -9,16 +9,20 @@ import com.nishant4820.youtubelayout.data.*
 import com.nishant4820.youtubelayout.databinding.LongVideoItemBinding
 import com.nishant4820.youtubelayout.databinding.ShortsTabLayoutBinding
 
+// RecyclerView Adapter for RecyclerView present in HomeFragment
 class MainAdapter :
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
-    var dataItemList = mutableListOf<DataItem>()
+    // Contains the mutable list of DataItem
+    private var dataItemList = mutableListOf<DataItem>()
 
+    // Setter Function to update data
     fun setData(data: List<DataItem>) {
         dataItemList = data.toMutableList()
         notifyDataSetChanged()
     }
 
+    // ViewHolder for Long Video Item
     inner class LongVideoItemViewHolder(private val binding: LongVideoItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
@@ -32,6 +36,7 @@ class MainAdapter :
         }
     }
 
+    // ViewHolder for Shorts RecyclerView Tab
     inner class ShortsRecyclerViewViewHolder(private val binding: ShortsTabLayoutBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
@@ -47,6 +52,7 @@ class MainAdapter :
         }
     }
 
+    // Classifying Item by it's type (Long Video or Shorts)
     override fun getItemViewType(position: Int): Int {
         return when (dataItemList[position].viewType) {
             DataItemType.SHORTS ->
@@ -56,6 +62,7 @@ class MainAdapter :
         }
     }
 
+    // Creating different ViewHolders for different Layouts
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
         return when (viewType) {
             R.layout.shorts_tab_layout -> {
@@ -74,6 +81,7 @@ class MainAdapter :
         }
     }
 
+    // Binding the ViewHolder
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         when (holder) {
             is LongVideoItemViewHolder -> {
@@ -85,6 +93,7 @@ class MainAdapter :
         }
     }
 
+    // Get the total number of Items in the Recycler View
     override fun getItemCount(): Int {
         return dataItemList.size
     }
